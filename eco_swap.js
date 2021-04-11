@@ -2,7 +2,7 @@ var sustainable = false;
 
 
 //open json
-fetch('eco_list.json')
+fetch('data/eco_list.json')
   .then(response => response.json())
   .then(data => {
     console.log("first call");
