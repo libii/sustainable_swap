@@ -6,26 +6,43 @@
 //change color
 var sustainable = false;
 
-var productName = document.querySelector("#productTitle").textContent;
 
 //open json
 fetch('eco_list.json')
-.then(response => response.json())
-.then(data => {console.log(data);
-});
-//loop through json i
-     //check categories
-     //check if zero waste
-          //if(productName=??stringcontain.)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    var productName = document.querySelector("#productTitle").textContent.toLowerCase();
+    var category = "";
+
+    for (var k = 0; k < Object.keys(data).length - 1; ++k) {
+      //check if category is checkable
+      console.log(data[k].product_search_include);
+      if (productName.find(data[k].product_search_include) >= 0) {
+        category = data[k].product_search_include;
+        var starElement = document.querySelector("#averageCustomerReviews > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > a:nth-child(1) > i:nth-child(1)");
+
+        //check if sustainable
+        for (var n = 0; n < data[k].product_search_not_include.length; ++n) {
+          if (productName.find(data[k].product_search_include) >= 0) {
+            sustainable = true;
+            starElement.style.filter = "hue-rotate(50deg)"; //green
+            break;
+          } 
+        }
+        if(sustainable==false)
+          starElement.style.filter = "hue-rotate(220deg) saturate(.4)"; //pollution
+        break;
+      }
+
+    }
+
+  });
+
+x
 
 
-var starElement = document.querySelector("#averageCustomerReviews > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > a:nth-child(1) > i:nth-child(1)");
 
-if (sustainable == true) {
-  starElement.style.filter = "hue-rotate(50deg)";
-} else {
-  starElement.style.filter = "hue-rotate(220deg) saturate(.4)";
-}
 
 //add text
 var nodeRef = document.querySelector("#centerCol > hr:nth-child(9)");
@@ -130,16 +147,16 @@ if (sustainable == true) {
   buttonElement.appendChild(popupElement);
 
   //header
-  var myHeader=document.createElement("h3");
+  var myHeader = document.createElement("h3");
   myHeader.textContent = "Product Recommendations";
   popupElement.appendChild(myHeader);
 
-  var closeElement=document.createElement("a");
+  var closeElement = document.createElement("a");
   closeElement.classList.add("close");
   closeElement.href = "#";
   closeElement.textContent = "";
   popupElement.appendChild(closeElement);
-  
+
   //list
   var myList = document.createElement("div");
   myList.classList.add("myList");
@@ -173,44 +190,45 @@ if (sustainable == true) {
   // myRow.appendChild(myData);
 
   fetch('data/eco_list.json')
-  .then(response => response.json())
-  .then(data => {console.log(data);
-    console.log(data[0].price);
-    console.log(Object.keys(data).length); //length
-    for(var k = 0; k < Object.keys(data).length-1; ++k){
-      //row
-      var myRow = document.createElement("tr");
-      myTable.appendChild(myRow);
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      console.log(data[0].price);
+      console.log(Object.keys(data).length); //length
+      for (var k = 0; k < Object.keys(data).length - 1; ++k) {
+        //row
+        var myRow = document.createElement("tr");
+        myTable.appendChild(myRow);
 
-      var myData = document.createElement("td");
-      myRow.appendChild(myData);
-    
-      var myImage = document.createElement("img");
-      myImage.src = "images/" +data[k].images;
-      myImage.style = "width: 50px; height:48px";
-      myData.appendChild(myImage);
-    
-      myData = document.createElement("td");
-      var myLink = document.createElement("a");
-      //myData.textContent = data[k].swaps;
-      myRow.appendChild(myData);
+        var myData = document.createElement("td");
+        myRow.appendChild(myData);
 
-      var myLink = document.createElement("a");
-      myLink.href = data[k].link;
-      myLink.target="_blank";
-      myLink.textContent = data[k].swaps;
-      myData.appendChild(myLink);
-    
-      myData = document.createElement("td");
-      myData.textContent = "$" + data[k].price;
-      myRow.appendChild(myData);
-    
-      myData = document.createElement("td");
-      myData.textContent = "label 1, label 2";
-      myRow.appendChild(myData);
+        var myImage = document.createElement("img");
+        myImage.src = "images/" + data[k].images;
+        myImage.style = "width: 50px; height:48px";
+        myData.appendChild(myImage);
 
-    }
-  });
+        myData = document.createElement("td");
+        var myLink = document.createElement("a");
+        //myData.textContent = data[k].swaps;
+        myRow.appendChild(myData);
+
+        var myLink = document.createElement("a");
+        myLink.href = data[k].link;
+        myLink.target = "_blank";
+        myLink.textContent = data[k].swaps;
+        myData.appendChild(myLink);
+
+        myData = document.createElement("td");
+        myData.textContent = "$" + data[k].price;
+        myRow.appendChild(myData);
+
+        myData = document.createElement("td");
+        myData.textContent = "label 1, label 2";
+        myRow.appendChild(myData);
+
+      }
+    });
 
 }
 
