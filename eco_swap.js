@@ -66,6 +66,7 @@ if (sustainable == true) {
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+    z-index: 999;
   }
   .overlay:target {
     visibility: visible;
@@ -144,9 +145,9 @@ if (sustainable == true) {
   myList.classList.add("myList");
   popupElement.appendChild(myList);
 
-  // //make table
-  // var myTable = document.createElement("table");
-  // myList.appendChild(myTable);
+  //make table
+  var myTable = document.createElement("table");
+  myList.appendChild(myTable);
 
   // var myRow = document.createElement("tr");
   // myTable.appendChild(myRow);
