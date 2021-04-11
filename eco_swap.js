@@ -1,9 +1,4 @@
-// function makebutton(myParentNode){
-// hmmm
-// }
 
-
-//change color
 var sustainable = false;
 
 
@@ -11,11 +6,12 @@ var sustainable = false;
 fetch('eco_list.json')
   .then(response => response.json())
   .then(data => {
+    console.log("first call");
     console.log(data);
     var productName = document.querySelector("#productTitle").textContent.toLowerCase();
     var category = "";
 
-    for (var k = 0; k < Object.keys(data).length - 1; ++k) {
+    for (var k = 0; k < data.length; ++k) {
       //check if category is checkable
       console.log(data[k].product_search_include);
       if (productName.find(data[k].product_search_include) >= 0) {
@@ -192,6 +188,7 @@ if (sustainable == true) {
   fetch('data/eco_list.json')
     .then(response => response.json())
     .then(data => {
+      console.log("second call");
       console.log(data);
       console.log(data[0].price);
       console.log(Object.keys(data).length); //length
