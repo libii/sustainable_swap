@@ -13,7 +13,8 @@ fetch('data/eco_list.json')
     for (var k = 0; k < data.length; ++k) {
       //check if category is checkable
       console.log(data[k].product_search_include);
-      if (productName.find(data[k].product_search_include) >= 0) {
+      //??
+      if (productName.includes(data[k].product_search_include)) {
         category = data[k].product_search_include;
         var starElement = document.querySelector("#averageCustomerReviews > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > a:nth-child(1) > i:nth-child(1)");
 
@@ -91,7 +92,7 @@ fetch('data/eco_list.json')
 
         //check if sustainable
         for (var n = 0; n < data[k].product_search_not_include.length; ++n) {
-          if (productName.find(data[k].product_search_include) >= 0) {
+          if (productName.includes(data[k].product_search_include)) {
             //sustainable
             sustainable = true;
             console.log("sustainable");
