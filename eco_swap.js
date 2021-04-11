@@ -198,7 +198,7 @@ if (sustainable == true) {
       var myLink = document.createElement("a");
       myLink.href = data[k].link;
       myLink.target="_blank";
-      //mylink.innerText = data[k].swaps;
+      myLink.textContent = data[k].swaps;
       myData.appendChild(myLink);
     
       myData = document.createElement("td");
