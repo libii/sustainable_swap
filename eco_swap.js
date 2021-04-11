@@ -137,7 +137,7 @@ if (sustainable == true) {
   var closeElement=document.createElement("a");
   closeElement.classList.add("close");
   closeElement.href = "#";
-  closeElement.textContent = "x";
+  closeElement.textContent = "";
   popupElement.appendChild(closeElement);
   
   //list
