@@ -191,13 +191,13 @@ fetch('eco_list.json')
             myData.textContent = "label 1, label 2";
             myRow.appendChild(myData);
           }//if
-        }//for
+        }//for check items in categories
 
 
 
 
         break;
-      }
+      }//check is sustainable
     }
 
   });
@@ -252,7 +252,7 @@ fetch('eco_list.json')
 
 
 
-}
+
 
 
 
