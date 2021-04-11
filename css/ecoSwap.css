@@ -1,0 +1,7 @@
+.a-icon.a-accordion-radio, .a-icon.a-icon-checkbox, .a-icon.a-icon-radio, .a-icon.a-icon-star, .a-icon.a-icon-star-medium, .a-icon.a-icon-star-mini, .a-icon.a-icon-star-small {
+  /* happy green */
+  /* filter: hue-rotate(50deg); */
+
+  /* pollution color */
+  filter: hue-rotate(220deg) saturate(.4);
+}
