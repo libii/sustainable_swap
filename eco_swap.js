@@ -190,11 +190,7 @@ fetch('data/eco_list.json')
 
             myData = document.createElement("td");
 
-            let string="";
-            for(var i = 0; i < data[k].tags.length; ++i){
-              string += data[k].tags[i];
-            }
-            myData.textContent = string;
+            myData.textContent = data[k].tags.join(', ');
             myRow.appendChild(myData);
           }//if
         }//for check items in categories
