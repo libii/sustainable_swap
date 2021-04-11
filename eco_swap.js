@@ -190,8 +190,8 @@ fetch('eco_list.json')
             myData = document.createElement("td");
             myData.textContent = "label 1, label 2";
             myRow.appendChild(myData);
-          }
-        }
+          }//if
+        }//for
 
 
 
