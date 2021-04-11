@@ -2,7 +2,7 @@ var sustainable = false;
 
 
 //open json
-fetch('data/eco_list.json')
+fetch(browser.runtime.getURL('data/eco_list.json')) //browser.runtime.getURL()
   .then(response => response.json())
   .then(data => {
     console.log("first call");
@@ -13,7 +13,7 @@ fetch('data/eco_list.json')
     for (var k = 0; k < data.length; ++k) {
       //check if category is checkable
       console.log(data[k].product_search_include);
-      //??
+
       if (productName.includes(data[k].product_search_include)) {
         category = data[k].product_search_include;
         var starElement = document.querySelector("#averageCustomerReviews > span:nth-child(1) > span:nth-child(1) > span:nth-child(1) > a:nth-child(1) > i:nth-child(1)");
@@ -92,7 +92,7 @@ fetch('data/eco_list.json')
 
         //check if sustainable
         for (var n = 0; n < data[k].product_search_not_include.length; ++n) {
-          if (productName.includes(data[k].product_search_include)) {
+          if (productName.includes(data[k].product_search_not_include[n])) {
             //sustainable
             sustainable = true;
             console.log("sustainable");
@@ -105,101 +105,102 @@ fetch('data/eco_list.json')
             break;
           }
         }
-        if (sustainable == false)
+        if (sustainable == false) {
           //add text
           console.log("not sustainable");
-        sustainNoticeElement.textContent = "Not Sustainable: "
+          sustainNoticeElement.textContent = "Not Sustainable: "
+
+          //add pollution color on starts
+          starElement.style.filter = "hue-rotate(220deg) saturate(.4)"; //pollution
 
 
-        //add pollution color on starts
-        starElement.style.filter = "hue-rotate(220deg) saturate(.4)"; //pollution
+          var styleSheet = document.createElement("style");
+          styleSheet.id = "pleaseHelp";
+          styleSheet.innerText = styles;
+          document.head.appendChild(styleSheet);
 
-        var styleSheet = document.createElement("style");
-        styleSheet.id = "pleaseHelp";
-        styleSheet.innerText = styles;
-        document.head.appendChild(styleSheet);
+          //make button
+          var buttonElement = document.createElement("a");
+          buttonElement.classList.add("myButton");
+          buttonElement.href = "#myPopup";
+          buttonElement.textContent = "Get Sustainable Swap";
+          // function makeButton(myParentNode);
+          myParentNode.insertBefore(buttonElement, nodeRef);
 
-        //make button
-        var buttonElement = document.createElement("a");
-        buttonElement.classList.add("myButton");
-        buttonElement.href = "#myPopup";
-        buttonElement.textContent = "Get Sustainable Swap";
-        // function makeButton(myParentNode);
-        myParentNode.insertBefore(buttonElement, nodeRef);
+          //make pop up
+          buttonElement = document.createElement("div");
+          buttonElement.id = "myPopup";
+          buttonElement.classList.add("overlay");
+          myParentNode.insertBefore(buttonElement, nodeRef);
 
-        //make pop up
-        buttonElement = document.createElement("div");
-        buttonElement.id = "myPopup";
-        buttonElement.classList.add("overlay");
-        myParentNode.insertBefore(buttonElement, nodeRef);
+          var popupElement = document.createElement("div");
+          popupElement.classList.add("thePopup");
+          buttonElement.appendChild(popupElement);
 
-        var popupElement = document.createElement("div");
-        popupElement.classList.add("thePopup");
-        buttonElement.appendChild(popupElement);
+          //header
+          var myHeader = document.createElement("h3");
+          myHeader.textContent = "Product Recommendations";
+          popupElement.appendChild(myHeader);
 
-        //header
-        var myHeader = document.createElement("h3");
-        myHeader.textContent = "Product Recommendations";
-        popupElement.appendChild(myHeader);
+          var closeElement = document.createElement("a");
+          closeElement.classList.add("close");
+          closeElement.href = "#";
+          closeElement.textContent = "";
+          popupElement.appendChild(closeElement);
 
-        var closeElement = document.createElement("a");
-        closeElement.classList.add("close");
-        closeElement.href = "#";
-        closeElement.textContent = "";
-        popupElement.appendChild(closeElement);
+          //list
+          var myList = document.createElement("div");
+          myList.classList.add("myList");
+          popupElement.appendChild(myList);
 
-        //list
-        var myList = document.createElement("div");
-        myList.classList.add("myList");
-        popupElement.appendChild(myList);
+          //make table
+          var myTable = document.createElement("table");
+          myList.appendChild(myTable);
 
-        //make table
-        var myTable = document.createElement("table");
-        myList.appendChild(myTable);
+          console.log(data[0].price);
+          console.log(Object.keys(data).length); //length
+          for (var k = 0; k < Object.keys(data).length - 1; ++k) {
+            //row
+            if (data[k].product_search_include == category) {
+              var myRow = document.createElement("tr");
+              myTable.appendChild(myRow);
 
-        console.log(data[0].price);
-        console.log(Object.keys(data).length); //length
-        for (var k = 0; k < Object.keys(data).length - 1; ++k) {
-          //row
-          if (data[k].product_search_include == category) {
-            var myRow = document.createElement("tr");
-            myTable.appendChild(myRow);
+              var myData = document.createElement("td");
+              myRow.appendChild(myData);
 
-            var myData = document.createElement("td");
-            myRow.appendChild(myData);
+              var myImage = document.createElement("img");
+              myImage.src = browser.runtime.getURL("images/" + data[k].images);
+              myImage.style = "width: 50px; height:48px";
+              myData.appendChild(myImage);
 
-            var myImage = document.createElement("img");
-            myImage.src = "images/" + data[k].images;
-            myImage.style = "width: 50px; height:48px";
-            myData.appendChild(myImage);
+              myData = document.createElement("td");
+              var myLink = document.createElement("a");
+              //myData.textContent = data[k].swaps;
+              myRow.appendChild(myData);
 
-            myData = document.createElement("td");
-            var myLink = document.createElement("a");
-            //myData.textContent = data[k].swaps;
-            myRow.appendChild(myData);
+              var myLink = document.createElement("a");
+              myLink.href = data[k].link;
+              myLink.target = "_blank";
+              myLink.textContent = data[k].swaps;
+              myData.appendChild(myLink);
 
-            var myLink = document.createElement("a");
-            myLink.href = data[k].link;
-            myLink.target = "_blank";
-            myLink.textContent = data[k].swaps;
-            myData.appendChild(myLink);
+              myData = document.createElement("td");
+              myData.textContent = "$" + data[k].price;
+              myRow.appendChild(myData);
 
-            myData = document.createElement("td");
-            myData.textContent = "$" + data[k].price;
-            myRow.appendChild(myData);
+              myData = document.createElement("td");
 
-            myData = document.createElement("td");
-
-            myData.textContent = data[k].tags.join(', ');
-            myRow.appendChild(myData);
-          }//if
-        }//for check items in categories
+              myData.textContent = data[k].tags.join(', ');
+              myRow.appendChild(myData);
+            } //if
+          } //for check items in categories
 
 
 
 
-        break;
-      }//check is sustainable
+          break;
+        } //check is sustainable
+      }
     }
 
   });

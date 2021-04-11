@@ -136,10 +136,19 @@
   },
   {
     "product_search_include": "matcha",
-    "product_search_not_include": ["latte", "pocky", "cookies", "culinary"],
+    "product_search_not_include": ["purechimp"],
     "swaps": "Purechimp Matcha Green Tea Powder 50g",
     "images": "16.jpg",
     "link": "https://www.amazon.com/Matcha-Green-Tea-Powder-PureChimp/dp/B01DSXK88E/ref=sr_1_4?dchild=1&keywords=purechimp&qid=1617695877&sr=8-4&th=1",
+    "price": 14.95,
+    "tags": ["plastic free, 1% for the planet, BCorp"]
+  },
+  {
+    "product_search_include": "matcha",
+    "product_search_not_include": "",
+    "swaps": "Purechimp Cinammon Matcha Green Tea Powder 50g",
+    "images": "16.jpg",
+    "link": "https://www.amazon.com/PureChimp-Ceremonial-Pesticide-Free-Recyclable-Aluminium/dp/B08CRJ62T8/ref=sr_1_7?crid=16VX4FX5T8N9N&dchild=1&keywords=purechimp+matcha+tea+powder&qid=1618132165&sprefix=purechimp%2Caps%2C248&sr=8-7",
     "price": 14.95,
     "tags": ["plastic free, 1% for the planet, BCorp"]
   }
