@@ -72,7 +72,7 @@ if (sustainable == true) {
     opacity: 1.0;
   }
   
-  .popup {
+  .thePopup {
     background: #fff;
     border-radius: 5px;
     margin: 70px auto;
@@ -82,12 +82,12 @@ if (sustainable == true) {
     transition: all 5s ease-in-out;
   }
   
-  .popup h3 {
+  .thePopup h3 {
     font-family: Arial, sans-serif;
     margin-top: 0;
     color: #333;
   }
-  .popup .close {
+  .thePopup .close {
     font-size: 30px;
     font-weight: bold;
     position: absolute;
@@ -97,10 +97,10 @@ if (sustainable == true) {
     text-decoration: none;
     color: #333;
   }
-  .popup .close:hover {
+  .thePopup .close:hover {
     color: #06D85F;
   }
-  .popup .content {
+  .thePopup .content {
     max-height: 30%;
     overflow: auto;
   }`
@@ -125,7 +125,7 @@ if (sustainable == true) {
   myParentNode.insertBefore(buttonElement, nodeRef);
 
   var popupElement = document.createElement("div");
-  popupElement.classList.add("popup");
+  popupElement.classList.add("thePopup");
   buttonElement.appendChild(popupElement);
 
   //header

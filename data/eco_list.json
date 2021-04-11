@@ -41,7 +41,7 @@
     "swaps": "Bite Toothpaste Tabs (Mint, Charcoal, etc)",
     "images": "5.jpg",
     "link": "https://bitetoothpastebits.com/products/mint",
-    "price": 12,
+    "price": 12.00,
     "tags": "plastic free, recyclable"
   },
   {
@@ -50,7 +50,7 @@
     "swaps": "byHumanKind Toothtabs Mint",
     "images": "6.jpg",
     "link": "https://byhumankind.com/products/toothpaste",
-    "price": 12,
+    "price": 12.00,
     "tags": "recyclable"
   },
   {
@@ -77,7 +77,7 @@
     "swaps": "Plaine Products Shampoo - Rosemary, Mint, Vanilla",
     "images": "9.jpg",
     "link": "https://www.amazon.com/Returnable-Refillable-Shampoo-Rosemary-Original/dp/B01LXZZIXL/ref=sr_1_6?dchild=1&keywords=plain+shampoo&qid=1617695069&sr=8-6",
-    "price": 30,
+    "price": 30.00,
     "tags": "plastic free, closed loop"
   },
   {
@@ -131,7 +131,7 @@
     "swaps": "Plaine Products Conditioner - Citrus Lavender",
     "images": "15.jpg",
     "link": "https://www.amazon.com/Eco-Friendly-Conditioner-Lavender-Sulfate-Refillable/dp/B07LB9SH6H/ref=sr_1_2?dchild=1&keywords=Plaine+Conditioner&qid=1617695803&sr=8-2",
-    "price": 30,
+    "price": 30.00,
     "tags": "plastic free, closed loop"
   },
   {

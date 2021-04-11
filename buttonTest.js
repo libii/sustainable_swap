@@ -1,4 +1,4 @@
-myParentNode=document.querySelector(".placeHolder");
+  myParentNode=document.querySelector(".placeHolder");
 
   //make button
   var buttonElement = document.createElement("a");
@@ -15,7 +15,7 @@ myParentNode=document.querySelector(".placeHolder");
   myParentNode.appendChild(buttonElement);
 
   var popupElement = document.createElement("div");
-  popupElement.classList.add("popup");
+  popupElement.classList.add("thePopup");
   buttonElement.appendChild(popupElement);
 
   //header
@@ -79,13 +79,14 @@ myParentNode=document.querySelector(".placeHolder");
       myData = document.createElement("td");
       var myLink = document.createElement("a");
       //myData.textContent = data[k].swaps;
-      myRow.appendChild(myData);
+      // myRow.appendChild(myData);
 
       var myLink = document.createElement("a");
       myLink.href = data[k].link;
       myLink.target="_blank";
-      //mylink.innerText = data[k].swaps;
+      myLink.textContent = data[k].swaps;
       myData.appendChild(myLink);
+      myRow.appendChild(myData);
     
       myData = document.createElement("td");
       myData.textContent = "$" + data[k].price;

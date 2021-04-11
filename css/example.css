@@ -44,7 +44,7 @@ body {
   opacity: 1;
 }
 
-.popup {
+.thePopup {
   margin: 70px auto;
   padding: 20px;
   background: #fff;
@@ -54,12 +54,12 @@ body {
   transition: all 5s ease-in-out;
 }
 
-.popup h3 {
+.thePopup h3 {
   margin-top: 0;
   color: #333;
   font-family: Tahoma, Arial, sans-serif;
 }
-.popup .close {
+.thePopup.close {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -69,10 +69,10 @@ body {
   text-decoration: none;
   color: #333;
 }
-.popup .close:hover {
+.thePopup .close:hover {
   color: #06D85F;
 }
-.popup .content {
+.thePopup .content {
   max-height: 30%;
   overflow: auto;
 }
