@@ -199,64 +199,9 @@ fetch(browser.runtime.getURL('data/eco_list.json')) //browser.runtime.getURL()
 
 
           break;
-        } //check is sustainable
+        }
       }
     }
 
   });
 
-
-
-
-
-
-
-// fetch('data/eco_list.json')
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log("second call");
-//     console.log(data);
-//     console.log(data[0].price);
-//     console.log(Object.keys(data).length); //length
-//     for (var k = 0; k < Object.keys(data).length - 1; ++k) {
-//       //row
-//       var myRow = document.createElement("tr");
-//       myTable.appendChild(myRow);
-
-//       var myData = document.createElement("td");
-//       myRow.appendChild(myData);
-
-//       var myImage = document.createElement("img");
-//       myImage.src = "images/" + data[k].images;
-//       myImage.style = "width: 50px; height:48px";
-//       myData.appendChild(myImage);
-
-//       myData = document.createElement("td");
-//       var myLink = document.createElement("a");
-//       //myData.textContent = data[k].swaps;
-//       myRow.appendChild(myData);
-
-//       var myLink = document.createElement("a");
-//       myLink.href = data[k].link;
-//       myLink.target = "_blank";
-//       myLink.textContent = data[k].swaps;
-//       myData.appendChild(myLink);
-
-//       myData = document.createElement("td");
-//       myData.textContent = "$" + data[k].price;
-//       myRow.appendChild(myData);
-
-//       myData = document.createElement("td");
-//       myData.textContent = "label 1, label 2";
-//       myRow.appendChild(myData);
-
-//     }
-//   });
-
-
-
-
-
-
-
-//add button
