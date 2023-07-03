@@ -1,4 +1,6 @@
-# EcoSwap App 0.1
+Repository Not Maintained
+
+# EcoSwap App 1.0
 A firefox extension that ecourages user that tells a user if a product online is sustainable. If not, they provide links to products that are more sustainable.
 
 # Installation Instructions - to try out the add on
